@@ -19,22 +19,13 @@ def add_icon(icon_paths):
             """,
             unsafe_allow_html=True
         )
-    # st.markdown(
-    #     f"""
-    #     <div class="container">
-    #         <img class="logo-img" src="data:image/png;base64,{base64.b64encode(open(LOGO_IMAGE, "rb").read()).decode()}">
-    #         <p class="logo-text">{icon_text}</p>
-    #     </div>
-    #     """,
-    #     unsafe_allow_html=True
-    # )
 
 def add_rating_icons(rating):
     md = """<p float="center">\n"""
     md += f"""<img src="data:image/png;base64,{get_img_obj("./icons/star.png")}" width="100" />\n"""*int(rating//1)
     rem = rating%1
     if rem > 0.25 and rem < 0.75:
-        md += f"""<img src="data:image/png;base64,{get_img_obj("./icons/half-star.png")}" width="100" />\n"""
+        md += f"""<img src="data:image/png;base64,{get_img_obj("./icons/half-star.png")}" width="50" />\n"""
     elif rem >= 0.75:
         md += f"""<img src="data:image/png;base64,{get_img_obj("./icons/star.png")}" width="100" />\n"""
     md += "</p>"

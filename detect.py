@@ -24,10 +24,10 @@ class FaceRater:
             cv_img = cv2.rectangle(cv_img, (x, y), (x+w, y+h), (0, 0, 255), 2)
             face_box = (x,y,x+w,y+h)
             # Add rating for the face
-            rating = add_rating(option="test", img=pil_img.crop(face_box))
+            rating = add_rating(img=pil_img.crop(face_box))
             cv_img =  cv2.putText(cv_img, 
                         str(round(rating,2)),
-                        (x,y-5),
+                        (x+w+round(w/25),y+round(h/2)),
                         fontFace=cv2.FONT_HERSHEY_SIMPLEX,
                         fontScale=h/200,
                         color=(0, 0, 255),
