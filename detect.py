@@ -39,7 +39,7 @@ class FaceRater:
         # Display the output
         # cv2.imshow('img', cv_img)
         # cv2.waitKey()
-        return cv_img, rating
+        return cv_img, max_rating
 
 if __name__=="__main__":
     FaceRater.detect_face("multi_test.jpg")
