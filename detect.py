@@ -19,12 +19,16 @@ class FaceRater:
         gray = cv2.cvtColor(cv_img, cv2.COLOR_BGR2GRAY)
         # Detect faces
         faces = face_cascade.detectMultiScale(gray, 1.1, 4)
+        # we return the maxium rating for that image
+        max_rating = 0
         # Draw rectangle around the faces
         for (x, y, w, h) in faces:
             cv_img = cv2.rectangle(cv_img, (x, y), (x+w, y+h), (0, 0, 255), 2)
             face_box = (x,y,x+w,y+h)
             # Add rating for the face
             rating = add_rating(img=pil_img.crop(face_box))
+            if rating > max_rating:
+                max_rating = rating
             cv_img =  cv2.putText(cv_img, 
                         str(round(rating,2)),
                         (x+w+round(w/25),y+round(h/2)),
