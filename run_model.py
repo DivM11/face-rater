@@ -9,7 +9,7 @@ def add_rating(image_path=None, img=None):
     # net definition 
     net = AlexNet()#.cuda()
     # load pretrained model
-    model = torch_convert.load_model('modeling\saved_models\\alexnet.pth')
+    model = torch_convert.load_model('modeling/saved_models/alexnet.pth')
     state_dict = torch_convert.byte_convert(model)['state_dict']
     net.load_state_dict(state_dict)
 
